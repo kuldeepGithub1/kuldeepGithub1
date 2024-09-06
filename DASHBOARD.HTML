@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 30px;
+            background-color: #6a11cb;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            
+        }
+
+        button {
+            border: none;
+
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .stats div {
+            background-color: #7f00ff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 150px;
+        }
+
+        .icons {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart {
+            width: 400px;
+            height: 400px;
+        }
+
+        footer {
+            background-color: #6a11cb;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .varchart{
+            border: rgb(250, 243, 231);
+        }
+        .navbutton{
+           height: 50px;
+           width: 120px;
+           margin-bottom: auto;
+           padding: 0%;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h1> <i class="fa-solid fa-user"></i> My Account</h1>
+        </div>
+        <nav >
+            <a href="#"><button class="navbutton">Home</button></a>
+            <a href="#"><button class="navbutton">My Profile</button></a>
+            <a href="#"><button class="navbutton">My Projects</button></a>
+            <a href="#"><button class="navbutton">Services</button></a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <button>
+                <div>
+                    <div class="icons"><i class="fas fa-tasks"></i></div>
+                    <h3>My Projects</h3>
+                    <p>2,000</p>
+                </div>
+            </button>
+            <button>
+                <div>
+                    <div class="icons"><i class="fas fa-thumbs-up"></i></div>
+                    <h3>Complete</h3>
+                    <p>1,500</p>
+                </div>
+            </button>
+            <button>
+                <div>
+                    <div class="icons"><i class="fas fa-hourglass-half"></i></div>
+                    <h3>Pending</h3>
+                    <p>20</p>
+                </div>
+            </button>
+            <button>
+                <div>
+                    <div class="icons"><i class="fas fa-exclamation-circle"></i></div>
+                    <h3>Machine Problem</h3>
+                    <p>2</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="card-container">
+            <button>
+                <div class="card">
+                    <h3>Mobile Application</h3>
+                    <img src="./image of mobile app.jpeg" alt="chart" height="100px" width="100px">
+                </div>
+            </button>
+            <button>
+                <div class="card">
+                    <h3>Website Application</h3>
+                    <img src="./Web-Application image.jpg" alt="chart" height="100px" width="100px">
+                </div>
+            </button>
+            <button>
+                <div class="card">
+                    <h3>Source Code</h3>
+                    <img src="./source-code-icon.png" alt="chart" height="100px" width="100px">
+            </button>
+
+
+            <button>
+                <div class="card">
+                    <h3>IP Address</h3>
+                    <img src="./ip-adresse icon.avif" alt="chart" height="100px" width="100px">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div>
+        <div class="chart">
+            <h3>Total: 700</h3>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <footer>
+        <p><button>Contect Seaport <i class="fas fa-paper-plane"></i></button></p>
+    </footer>
+
+    <div class="varchart">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Pending', 'Complete', 'Projects'],
+                    datasets: [{
+                        label: '# of Projects',
+                        data: [20, 1500, 2000],
+                        backgroundColor: ['#f39c12', '#2ecc71', '#3498db'],
+                    }]
+                }
+            });
+        </script>
+    </div>
+
+</body>
+
+</html>
